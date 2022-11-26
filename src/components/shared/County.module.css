@@ -1,0 +1,35 @@
+.container {
+  width: 231px;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  overflow: hidden;
+  margin: 0 15px 50px;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+}
+
+.img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 231px;
+  height: 153px;
+}
+
+h2 {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.container ul li {
+  list-style: none;
+}
+
+.countryContainer {
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+.countryContainer p {
+  margin: 0;
+}

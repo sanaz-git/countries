@@ -1,11 +1,11 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 
 //Api
 import { getCountries } from '../services/api';
 
-export const countryContext = createContext();
+export const CountryContext = createContext();
 
-const countryContextProvider = ({ children }) => {
+const CountryContextProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -17,11 +17,11 @@ const countryContextProvider = ({ children }) => {
 
   return (
     <div>
-      <countryContext.Provider value={countries}>
+      <CountryContext.Provider value={countries}>
         {children}
-      </countryContext.Provider>
+      </CountryContext.Provider>
     </div>
   );
 };
 
-export default countryContextProvider;
+export default CountryContextProvider;
