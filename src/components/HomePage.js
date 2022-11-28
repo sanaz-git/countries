@@ -5,6 +5,7 @@ import { CountryContext } from '../context/CountryContextProvider';
 
 //Components
 import Country from './shared/Country';
+import Filter from './shared/Filter';
 
 //Styles
 import styles from './HomePage.module.css';
@@ -12,11 +13,17 @@ import styles from './HomePage.module.css';
 const HomePage = () => {
   const countriesData = useContext(CountryContext);
   return (
-    <div className={styles.container}>
-      {countriesData.map((country) => (
-        <Country key={v4()} data={country} id={v4()} />
-      ))}
-    </div>
+    <>
+      <div>
+        <Filter />
+      </div>
+      <div className={styles.container}>
+        {countriesData.map((country) => (
+          <Country key={v4()} data={country} />
+          // <Country key={numericCode} data={country} />
+        ))}
+      </div>
+    </>
   );
 };
 
