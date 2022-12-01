@@ -1,6 +1,16 @@
-.container {
+.countryContainer {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* margin-top: 20px; */
+  padding-right: 200px;
+  padding-left: 50px;
+}
+
+.searchContainer {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 30px;
 }

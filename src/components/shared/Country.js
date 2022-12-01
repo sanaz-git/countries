@@ -8,7 +8,6 @@ const Country = ({ data }) => {
   return (
     <div className={styles.container}>
       <Link to={`/countries/${v4()}`}>
-        {/* <Link to={`/countries/${id}`}> */}
         <img className={styles.img} src={data.flags.svg} alt="country" />
         <h2>{data.name.common}</h2>
         <div className={styles.countryContainer}>
