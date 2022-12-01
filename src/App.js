@@ -15,7 +15,7 @@ function App() {
       <CountryContextProvider>
         <Navbar />
         <Switch>
-          <Route path="/countries/:id" component={CountryDetails} />
+          <Route path="/countries/:name" component={CountryDetails} />
           <Route path="/countries" component={HomePage} />
           <Redirect to="/countries" />
         </Switch>
