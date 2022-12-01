@@ -13,7 +13,14 @@ import Country from './Country';
 const Filter = () => {
   const data = useContext(CountryContext);
   const [search, setSearch] = useState('');
-  const [selects, setSelects] = useState();
+  const regions = [
+    { name: 'Europe' },
+    { name: 'Asia' },
+    { name: 'Africa' },
+    { name: 'Oceania' },
+    { name: 'Americas' },
+    { name: 'Antarctic' },
+  ];
 
   const searchHandler = (event) => {
     setSearch(event.target.value);
@@ -23,35 +30,25 @@ const Filter = () => {
     item.name.common.toLowerCase().includes(search.toLocaleLowerCase()),
   );
 
-  const filterHandler = (event) => {
-    setSelects(event.target.value);
-  };
-
   return (
     <div>
       <div className={styles.searchContainer}>
         <input
           type="text"
+          name="search"
+          id="search"
           placeholder="Search a country .."
           value={search}
           onChange={searchHandler}
         />
 
-        {/* <select value={selects} onChange={filterHandler}>
-          <option value="Filter by region">Filter by region</option>
-          <option value="All">All</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select> */}
-        <select onChange={filterHandler}>
-          {data.map((opts, i) => (
-            <option>{opts.region}</option>
+        <select name="filter_by_region" id="filter_by_region">
+          {regions.map((region, index) => (
+            <option key={index} value={region.name}>
+              {region.name}
+            </option>
           ))}
         </select>
-        <h1>{selects}</h1>
       </div>
       <div className={styles.countryContainer}>
         {searchData.map((item) => (
