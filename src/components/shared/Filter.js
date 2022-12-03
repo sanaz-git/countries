@@ -13,7 +13,11 @@ import Country from './Country';
 const Filter = () => {
   const data = useContext(CountryContext);
   const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState([]);
+  const [test, setTest] = useState([]);
+
   const regions = [
+    { name: 'All' },
     { name: 'Europe' },
     { name: 'Asia' },
     { name: 'Africa' },
@@ -22,6 +26,7 @@ const Filter = () => {
     { name: 'Antarctic' },
   ];
 
+  //search
   const searchHandler = (event) => {
     setSearch(event.target.value);
   };
@@ -29,6 +34,25 @@ const Filter = () => {
   const searchData = data.filter((item) =>
     item.name.common.toLowerCase().includes(search.toLocaleLowerCase()),
   );
+
+  //filter
+  async function filterByRegion(region) {
+    try {
+      const response = await fetch(
+        `https://restcountries.com/v3.1/region/${region}`,
+      );
+      const regionData = await response.json();
+      setFilter(regionData);
+      console.log(regionData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleFilterByRegion(e) {
+    e.preventDefault();
+    filterByRegion();
+  }
 
   return (
     <div>
@@ -41,14 +65,20 @@ const Filter = () => {
           value={search}
           onChange={searchHandler}
         />
-
-        <select name="filter_by_region" id="filter_by_region">
-          {regions.map((region, index) => (
-            <option key={index} value={region.name}>
-              {region.name}
-            </option>
-          ))}
-        </select>
+        <form onSubmit={handleFilterByRegion}>
+          <select
+            name="filter_by_region"
+            id="filter_by_region"
+            value={regions.name}
+            onChange={(e) => filterByRegion(e.target.value)}
+          >
+            {regions.map((region, index) => (
+              <option key={index} value={region.name}>
+                {region.name}
+              </option>
+            ))}
+          </select>
+        </form>
       </div>
       <div className={styles.countryContainer}>
         {searchData.map((item) => (

@@ -14,7 +14,6 @@ const Country = ({ data }) => {
           <p>Population: {data.population} </p>
           <p>Region: {data.region}</p>
           <p>Capital: {data.capital}</p>
-          {/* <p>id:{v4()}</p> */}
         </div>
       </Link>
     </div>
