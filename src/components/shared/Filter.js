@@ -1,20 +1,14 @@
-import React, { useContext, useState } from 'react';
-// import { v4 } from 'uuid';
+import React, { useEffect, useState } from 'react';
 
 //Styles
 import styles from './Filter.module.css';
 
-//Context
-import { CountryContext } from '../../context/CountryContextProvider';
-
 //Components
 import Country from './Country';
+import { getCountries } from '../../services/api';
 
 const Filter = () => {
-  const data = useContext(CountryContext);
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState([]);
-  const [test, setTest] = useState([]);
+  const [countries, setCountries] = useState([]);
 
   const regions = [
     { name: 'All' },
@@ -26,33 +20,27 @@ const Filter = () => {
     { name: 'Antarctic' },
   ];
 
-  //search
-  const searchHandler = (event) => {
-    setSearch(event.target.value);
+  useEffect(() => {
+    const fetchAPI = async () => {
+      setCountries(await getCountries());
+    };
+    fetchAPI();
+  }, []);
+
+  const filterByRegion = async (region) => {
+    if (region === '') return;
+    const res = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+    const data = await res.json();
+    await setCountries(data);
   };
 
-  const searchData = data.filter((item) =>
-    item.name.common.toLowerCase().includes(search.toLocaleLowerCase()),
-  );
-
-  //filter
-  async function filterByRegion(region) {
-    try {
-      const response = await fetch(
-        `https://restcountries.com/v3.1/region/${region}`,
-      );
-      const regionData = await response.json();
-      setFilter(regionData);
-      console.log(regionData);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function handleFilterByRegion(e) {
-    e.preventDefault();
-    filterByRegion();
-  }
+  const searchCountry = async (term) => {
+    if (term.length < 3 || term === '') return;
+    const res = await fetch(`https://restcountries.com/v3.1//name/${term}`);
+    const data = await res.json();
+    await console.log(data);
+    await setCountries(data);
+  };
 
   return (
     <div>
@@ -62,26 +50,25 @@ const Filter = () => {
           name="search"
           id="search"
           placeholder="Search a country .."
-          value={search}
-          onChange={searchHandler}
+          // value={countries}
+          onChange={(term) => searchCountry(term.target.value)}
         />
-        <form onSubmit={handleFilterByRegion}>
-          <select
-            name="filter_by_region"
-            id="filter_by_region"
-            value={regions.name}
-            onChange={(e) => filterByRegion(e.target.value)}
-          >
-            {regions.map((region, index) => (
-              <option key={index} value={region.name}>
-                {region.name}
-              </option>
-            ))}
-          </select>
-        </form>
+
+        <select
+          name="filter_by_region"
+          id="filter_by_region"
+          value={regions.name}
+          onChange={(e) => filterByRegion(e.target.value)}
+        >
+          {regions.map((region, index) => (
+            <option key={index} value={region.name}>
+              {region.name}
+            </option>
+          ))}
+        </select>
       </div>
       <div className={styles.countryContainer}>
-        {searchData.map((item) => (
+        {countries.map((item) => (
           <Country key={item.name.common} data={item} />
         ))}
       </div>

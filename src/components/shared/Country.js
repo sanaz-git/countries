@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { v4 } from 'uuid';
 
 import styles from './County.module.css';
 
-const Country = ({ data }) => {
+const Country = ({ data, data2 }) => {
   return (
     <div className={styles.container}>
       <Link to={`/countries/${data.name.common}`}>
