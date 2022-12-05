@@ -21,7 +21,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <CountryContextProvider>
-          <Navbar />
+          <Navbar btn={toggleTheme} theme={theme} />
           <Switch>
             <Route path="/countries/:name" component={CountryDetails} />
             <Route path="/countries" component={HomePage} />
