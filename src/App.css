@@ -8,6 +8,22 @@
   pointer-events: none;
 }
 
+#light {
+  background-color: #fafafa;
+}
+
+#dark {
+  background-color: #202c37;
+}
+
+#light .HomePage {
+  background-color: #fafafa;
+}
+
+#dark .HomePage {
+  background-color: #202c37;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

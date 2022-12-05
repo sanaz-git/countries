@@ -35,7 +35,7 @@ const Filter = () => {
   };
 
   const searchCountry = async (term) => {
-    if (term.length < 3 || term === '') return;
+    if (term.length < 2 || term === '') return;
     const res = await fetch(`https://restcountries.com/v3.1//name/${term}`);
     const data = await res.json();
     await console.log(data);
