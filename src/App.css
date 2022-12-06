@@ -18,6 +18,40 @@
   color: #fafafa;
 }
 
+#dark #navbar {
+  background-color: #2b3945;
+}
+#light #navbar {
+  background-color: #fff;
+}
+
+#light span {
+  color: black;
+}
+
+#dark button {
+  background-color: #2b3945;
+  color: #fff;
+}
+#dark input {
+  background-color: #2b3945;
+  color: #fff;
+}
+
+#dark select {
+  background-color: #2b3945;
+  color: #fff;
+}
+
+#dark p,
+span {
+  color: #fff;
+}
+
+#dark h2 {
+  color: #fff;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

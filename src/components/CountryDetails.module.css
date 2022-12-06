@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
 }
-
+/* .link {
+  padding-right: 900px;
+} */
 .link button {
   width: 100px;
   padding: 5px;
@@ -14,6 +15,7 @@
   text-decoration: none;
   color: black;
   background-color: #fff;
+  margin-top: 20px;
 }
 .info {
   display: flex;
@@ -39,9 +41,6 @@
 .container img {
   width: 400px;
   height: 300px;
-}
-
-.imgContainer {
 }
 
 .officialContainer h3 {
