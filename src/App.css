@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #f8f8f8;
+  background-color: #fafafa;
 }
 
 .App-logo {
@@ -10,18 +10,12 @@
 
 #light {
   background-color: #fafafa;
+  color: black;
 }
 
 #dark {
   background-color: #202c37;
-}
-
-#light .HomePage {
-  background-color: #fafafa;
-}
-
-#dark .HomePage {
-  background-color: #202c37;
+  color: #fafafa;
 }
 
 @media (prefers-reduced-motion: no-preference) {

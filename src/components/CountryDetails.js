@@ -22,23 +22,35 @@ const CountryDetails = () => {
   }, [name]);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <Link to="/countries" className={styles.link}>
+        <button> 🡨 back</button>
+      </Link>
       {country.map((item) => (
-        <div key={item.population} className={styles.container}>
-          <div>
+        <div key={item.population} className={styles.info}>
+          <div className={styles.imgContainer}>
             <img src={item.flags.svg} alt={item.name.common} />
           </div>
-          <div>
+          <div className={styles.officialContainer}>
             <h1>{item.name.official}</h1>
             <ul>
-              <li>Capital:{item.capital[0]}</li>
-              <li>Population:{item.population.toLocaleString()}</li>
-              <li>Region:{item.region}</li>
-              <li>Subregion:{item.subregion}</li>
+              <li>
+                Capital:<span>{item.capital[0]}</span>
+              </li>
+              <li>
+                Population:<span>{item.population.toLocaleString()}</span>
+              </li>
+              <li>
+                Region:<span>{item.region}</span>
+              </li>
+              <li>
+                Subregion:<span></span>
+                {item.subregion}
+              </li>
             </ul>
             {item.border && (
               <>
-                <h3>Borders</h3>
+                <h3>Border Countries</h3>
                 <ul>
                   {item.borders.map((border, index) => (
                     <li key={index}>{border}</li>
@@ -49,8 +61,6 @@ const CountryDetails = () => {
           </div>
         </div>
       ))}
-
-      <Link to="/countries">back</Link>
     </div>
   );
 };

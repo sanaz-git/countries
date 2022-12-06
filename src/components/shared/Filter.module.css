@@ -2,9 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* margin-top: 20px; */
-  padding-right: 200px;
-  padding-left: 50px;
+  margin: 0 100px;
+  height: 100vh;
 }
 
 .searchContainer {
@@ -13,4 +12,27 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px;
+  margin: 0 25px;
+}
+.searchContainer i {
+  position: absolute;
+  margin-left: 10px;
+  color: gray;
+}
+
+.searchContainer input {
+  width: 300px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  padding-left: 35px;
+}
+
+.searchContainer select {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  border-radius: 5px;
 }

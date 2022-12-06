@@ -43,8 +43,9 @@ const Filter = () => {
   };
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <div className={styles.searchContainer}>
+        <i className="fa fa-search"></i>
         <input
           type="text"
           name="search"

@@ -1,11 +1,58 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 0 50px;
+  flex-direction: column;
+  height: 100vh;
 }
 
+.link button {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  background-color: #fff;
+}
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.container h1 {
+  font-size: 20px;
+  margin-left: 38px;
+}
+.container ul {
+  list-style: none;
+}
+.container ul li {
+  text-align: left;
+}
+
+.container ul li span {
+  font-weight: 300;
+  margin-left: 5px;
+}
 .container img {
   width: 400px;
   height: 300px;
+}
+
+.imgContainer {
+}
+
+.officialContainer h3 {
+  color: black;
+}
+.officialContainer ul {
+  list-style: none;
+}
+.officialContainer ul li {
+  width: 30px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  border-radius: 5px;
 }
