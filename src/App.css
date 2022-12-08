@@ -18,6 +18,10 @@
   color: #fafafa;
 }
 
+#dark body {
+  background-color: #202c37;
+}
+
 #dark #navbar {
   background-color: #2b3945;
 }

@@ -2,10 +2,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
-/* .link {
-  padding-right: 900px;
-} */
+
 .link button {
   width: 100px;
   padding: 5px;
@@ -44,14 +43,21 @@
 }
 
 .officialContainer h3 {
-  color: black;
+  text-align: left;
+  margin-left: 38px;
+  font-weight: 600;
+  font-size: 14px;
 }
-.officialContainer ul {
-  list-style: none;
-}
-.officialContainer ul li {
-  width: 30px;
+
+.border button {
+  width: 50px;
+  margin: 2px;
+  text-align: center;
   border: none;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
   border-radius: 5px;
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: 100;
+  padding: 4px;
 }

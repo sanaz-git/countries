@@ -48,14 +48,14 @@ const CountryDetails = () => {
                 {item.subregion}
               </li>
             </ul>
-            {item.border && (
+            {item.borders && (
               <>
-                <h3>Border Countries</h3>
-                <ul>
+                <h3>Border Countries:</h3>
+                <div className={styles.border}>
                   {item.borders.map((border, index) => (
-                    <li key={index}>{border}</li>
+                    <button key={index}>{border}</button>
                   ))}
-                </ul>
+                </div>
               </>
             )}
           </div>
