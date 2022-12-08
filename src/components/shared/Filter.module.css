@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 0 100px;
+  justify-content: center;
 }
 
 .searchContainer {
@@ -34,4 +34,35 @@
   border: none;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
   border-radius: 5px;
+}
+
+@media (min-width: 1200) {
+  .countryContainer {
+    margin: 0 200px;
+  }
+}
+
+@media (max-width: 610px) {
+  .searchContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+  }
+
+  .searchContainer input {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+    border-radius: 5px;
+    padding-left: 35px;
+  }
+}
+
+@media (max-width: 400) {
+  .searchContainer input {
+    margin-bottom: 50px;
+  }
 }
