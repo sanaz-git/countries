@@ -11,7 +11,7 @@ const Filter = () => {
   const [countries, setCountries] = useState([]);
 
   const regions = [
-    { name: 'All' },
+  
     { name: 'Europe' },
     { name: 'Asia' },
     { name: 'Africa' },
