@@ -48,7 +48,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    margin: 0;
+    padding: 10px;
   }
 
   .searchContainer input {
@@ -61,8 +62,11 @@
   }
 }
 
-@media (max-width: 400) {
-  .searchContainer input {
-    margin-bottom: 50px;
+@media (max-width: 310px) {
+  .searchContainer i {
+    margin-bottom: 45px;
+  }
+  .searchContainer select {
+    margin-top: 10px;
   }
 }
