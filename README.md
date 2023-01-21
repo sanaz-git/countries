@@ -1,5 +1,5 @@
 ## Rest Countries Api
 
-## Link to app ([Click](https://countries-lac-theta.vercel.app/countries))
+## Link to App ([Click](https://countries-lac-theta.vercel.app/countries))
 
 
