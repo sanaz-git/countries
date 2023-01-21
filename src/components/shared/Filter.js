@@ -10,16 +10,6 @@ import { getCountries } from '../../services/api';
 const Filter = () => {
   const [countries, setCountries] = useState([]);
 
-  const regions = [
-  
-    { name: 'Europe' },
-    { name: 'Asia' },
-    { name: 'Africa' },
-    { name: 'Oceania' },
-    { name: 'Americas' },
-    { name: 'Antarctic' },
-  ];
-
   useEffect(() => {
     const fetchAPI = async () => {
       setCountries(await getCountries());
@@ -28,10 +18,17 @@ const Filter = () => {
   }, []);
 
   const filterByRegion = async (region) => {
-    if (region === '') return;
-    const res = await fetch(`https://restcountries.com/v3.1/region/${region}`);
-    const data = await res.json();
-    await setCountries(data);
+    if (region === 'all') {
+      const url = `https://restcountries.com/v3.1/all`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setCountries(data);
+    } else {
+      const url = `https://restcountries.com/v3.1/region/${region}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setCountries(data);
+    }
   };
 
   const searchCountry = async (term) => {
@@ -58,14 +55,14 @@ const Filter = () => {
         <select
           name="filter_by_region"
           id="filter_by_region"
-          value={regions.name}
           onChange={(e) => filterByRegion(e.target.value)}
         >
-          {regions.map((region, index) => (
-            <option key={index} value={region.name}>
-              {region.name}
-            </option>
-          ))}
+          <option value="all">All</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </div>
       <div className={styles.countryContainer}>
