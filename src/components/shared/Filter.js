@@ -48,7 +48,6 @@ const Filter = () => {
           name="search"
           id="search"
           placeholder="Search a country .."
-          // value={countries}
           onChange={(term) => searchCountry(term.target.value)}
         />
 
