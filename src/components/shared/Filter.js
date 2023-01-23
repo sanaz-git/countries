@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 //Styles
 import styles from './Filter.module.css';
 
 //Components
 import Country from './Country';
-import { getCountries } from '../../services/api';
+
+//context
+import { CountryContext } from '../../context/countryContextProvider';
 
 const Filter = () => {
-  const [countries, setCountries] = useState([]);
-
-  useEffect(() => {
-    const fetchAPI = async () => {
-      setCountries(await getCountries());
-    };
-    fetchAPI();
-  }, []);
+  const [countries, setCountries] = useContext(CountryContext);
 
   const filterByRegion = async (region) => {
     if (region === 'all') {

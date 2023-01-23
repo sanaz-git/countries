@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Context
+//Component
 import Filter from './shared/Filter';
 
 //Styles

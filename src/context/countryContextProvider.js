@@ -17,7 +17,7 @@ const CountryContextProvider = ({ children }) => {
 
   return (
     <div>
-      <CountryContext.Provider value={countries}>
+      <CountryContext.Provider value={[countries, setCountries]}>
         {children}
       </CountryContext.Provider>
     </div>
