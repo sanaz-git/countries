@@ -63,9 +63,6 @@ const Filter = () => {
           onChange={(term) => searchCountry(term.target.value)}
         />
 
-        <button onClick={sortByName}>Sort By Name</button>
-        <button onClick={sortByPopulation}>Sort By Population</button>
-
         <select
           name="filter_by_region"
           id="filter_by_region"
@@ -78,6 +75,10 @@ const Filter = () => {
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
         </select>
+      </div>
+      <div className={styles.sortContainer}>
+        <button onClick={sortByName}>Sort By Name</button>
+        <button onClick={sortByPopulation}>Sort By Population</button>
       </div>
       <div className={styles.countryContainer}>
         {countries.map((item) => (

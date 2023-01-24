@@ -36,6 +36,26 @@
   border-radius: 5px;
 }
 
+.sortContainer {
+  display: flex;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  margin: 0 25px;
+  flex-direction: row;
+}
+.sortContainer button {
+  width: 150px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 10px;
+  font-weight: bolder;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
 @media (min-width: 1200) {
   .countryContainer {
     margin: 0 200px;
