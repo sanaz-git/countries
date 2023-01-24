@@ -34,6 +34,23 @@ const Filter = () => {
     await setCountries(data);
   };
 
+  const sortByPopulation = () => {
+    const copyCountries = [...countries];
+    copyCountries.sort((a, b) => {
+      return b.population - a.population;
+    });
+    setCountries(copyCountries);
+  };
+  const sortByName = () => {
+    const copyCountries = [...countries];
+    copyCountries.sort((a, b) => {
+      const nameA = a.name.common;
+      const nameB = b.name.common;
+      return nameA.localeCompare(nameB);
+    });
+    setCountries(copyCountries);
+  };
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.searchContainer}>
@@ -45,6 +62,9 @@ const Filter = () => {
           placeholder="Search a country .."
           onChange={(term) => searchCountry(term.target.value)}
         />
+
+        <button onClick={sortByName}>Sort By Name</button>
+        <button onClick={sortByPopulation}>Sort By Population</button>
 
         <select
           name="filter_by_region"
